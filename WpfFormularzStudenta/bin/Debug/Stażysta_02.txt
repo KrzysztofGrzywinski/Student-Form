@@ -1,0 +1,6 @@
+Imię: Andrzej
+Nazwisko: Wilk
+Uczelnia: Politechnika Gdańska
+Elektrotech.: False
+Języki:
+język francuski

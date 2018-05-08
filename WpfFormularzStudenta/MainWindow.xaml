@@ -1,0 +1,82 @@
+﻿<Window x:Class="WpfFormularzStudenta.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Formularz studenta praktykanta" Height="392" Width="640" Background="LightBlue" Closing="Window_Closing">
+    <Window.Resources>
+        <Style x:Key="fspButtonStyle" TargetType="Control">
+            <Setter Property="Background" Value="Khaki"></Setter>
+            <Setter Property="Foreground" Value="Blue"></Setter>
+            <Setter Property="FontFamily" Value="Arial"></Setter>
+        </Style>
+        <Style x:Key="fspFontStyle" TargetType="Control">
+            <Setter Property="FontFamily" Value="Verdana"></Setter>
+        </Style>
+        <ContextMenu x:Key="textBoxMenu">
+            <MenuItem Header="Usuń Imię i Nazwisko" Name="usunNazwisko" Click="usunNazwisko_Click">
+            </MenuItem>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid>
+        <Label Content="Imię:" Height="28" HorizontalAlignment="Left" Margin="28,25,0,0"
+               Name="label1" VerticalAlignment="Top" Width="40" Style="{StaticResource fspFontStyle}" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="74,25,0,0" Name="imie"
+                 VerticalAlignment="Top" Width="130" IsEnabled="False"
+                 ContextMenu="{StaticResource textBoxMenu}"/>
+        <Label Content="Nazwisko:" Height="28" HorizontalAlignment="Left" Margin="248,25,0,0"
+               Name="label2" VerticalAlignment="Top" Width="70" Style="{StaticResource fspFontStyle}" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="320,25,0,0" Name="nazwisko"
+                 VerticalAlignment="Top" Width="144" IsEnabled="False"
+                 ContextMenu="{StaticResource textBoxMenu}"/>
+        <Label Content="Uczelnia:" Height="28" HorizontalAlignment="Left" Margin="28,67,0,0" Name="label3" VerticalAlignment="Top" Width="70" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="91,66,0,0" Name="listaUczelni" VerticalAlignment="Top" Width="225" IsEnabled="False" />
+        <CheckBox Content="Kierunek Elektrotechnika" Height="16" HorizontalAlignment="Left"
+                  Margin="360,71,0,0" Name="czyElektrotech" VerticalAlignment="Top" Width="151" IsEnabled="False" />
+        <Label Content="Data rozpoczęcia praktyki:" Height="28" HorizontalAlignment="Left" Margin="28,118,0,0" Name="label4" VerticalAlignment="Top" Width="159" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="179,118,0,0" Name="dataPraktyki"
+                    VerticalAlignment="Top" Width="275" IsEnabled="False" />
+        <GroupBox Header="Rok studiów" Height="160" HorizontalAlignment="Left" Margin="34,170,0,0" Name="groupBox1" VerticalAlignment="Top" Width="136" IsEnabled="False">
+                <StackPanel Margin="0,0,0,0" Name="stackPanel1">
+                <RadioButton Content="Rok 1" Height="16" Name="rok1" Margin="0,10,0,0" />
+                <RadioButton Content="Rok 2" Height="16" Name="rok2" Margin="0,10,0,0" />
+                <RadioButton Content="Rok 3" Height="16" Name="rok3" Margin="0,10,0,0" />
+                <RadioButton Content="Rok 4" Height="16" Name="rok4" Margin="0,10,0,0" />
+                <RadioButton Content="Rok 5" Height="16" Name="rok5" Margin="0,10,0,0" />
+            </StackPanel>
+        </GroupBox>
+        <ListBox Height="142" HorizontalAlignment="Left" Margin="201,182,0,0" Name="listaJezykow"
+                 VerticalAlignment="Top" Width="231" IsEnabled="False" />
+        <Button Content="Dodaj do bazy" Height="23" HorizontalAlignment="Left" Margin="474,231,0,0"
+                Name="dodaj" VerticalAlignment="Top" Width="113" Style="{StaticResource fspButtonStyle}" Click="dodaj_Click" IsEnabled="False" />
+        <Button Content="Wyczyść pola" Height="23" HorizontalAlignment="Left" Margin="474,297,0,0"
+                Name="wyczysc" VerticalAlignment="Top" Width="113" Style="{StaticResource fspButtonStyle}" Click="wyczysc_Click" IsEnabled="False" />
+        <DockPanel Height="24" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top"
+                   Width="Auto">
+            <Menu Height="23" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top">
+                <MenuItem Header="_Plik">
+                    <MenuItem Header="_Nowy Stażysta" Name="nowyStazysta" Click="nowyStazysta_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Nowy.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Zapisz Dane Stażysty" Name="zapiszDane" IsEnabled="False" Click="zapiszDane_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Zapisz.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Otwórz Plik Stażysty" Name="otworzDane" Click="otworzDane_Click">
+                    </MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Header="_Wyjście" Name="wyjscie" Click="wyjscie_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="P_omoc">
+                    <MenuItem Header="Informacja o programie..." Name="info" Click="info_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Pomoc.png"></Image>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <StatusBar Height="23" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="status" VerticalAlignment="Bottom" Width="Auto" />
+    </Grid>
+</Window>

@@ -1,0 +1,6 @@
+Imię: qqq
+Nazwisko: aaa
+Uczelnia: Politechnika Poznańska
+Elektrotech.: False
+Języki:
+język francuski
